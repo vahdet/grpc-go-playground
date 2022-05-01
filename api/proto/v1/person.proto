@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package greet;
+
+option go_package="github.com/vahdet/grpc-go-playground/api/proto/v1";
+
+message Person {
+    string id = 1;
+    string name = 2;
+    google.protobuf.Timestamp birth_date = 3;
+}
+
+message GetPersonInput {
+    string id = 1;
+}
+
+// Interface exported by the server
+service PersonService {
+    rpc GetPerson(GetPersonInput) returns (Person){}
+}
