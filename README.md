@@ -32,7 +32,7 @@ Just basic, tiny gRPC tries w/ Go. Based on [the Udemy course by Clement Jean](h
     }
     ```
 
-2. To generate the code, we use the `protoc` command. And we may specify the output directory, `--proto_path`, `--go_out` and `--go-grpc_out` flags to get set to generate the code in [pkg](https://github.com/golang-standards/project-layout/tree/master/pkg) folder, more specifically directly in `pkg/api/...`:
+4. To generate the code, we use the `protoc` command. And we may specify the output directory, `--proto_path`, `--go_out` and `--go-grpc_out` flags to get set to generate the code in [pkg](https://github.com/golang-standards/project-layout/tree/master/pkg) folder, more specifically directly in `pkg/api/...`:
 
     ```shell
     $ protoc --proto_path=api/proto/v1 \
@@ -56,3 +56,21 @@ Just basic, tiny gRPC tries w/ Go. Based on [the Udemy course by Clement Jean](h
 - [gRPC Basics in Go](https://grpc.io/docs/languages/go/basics/)
 
 - [Protocol Buffers Message and Field Naming Conventions](https://developers.google.com/protocol-buffers/docs/style#message_and_field_names)
+
+- Even not implemented here for simplicity, see a couple of resources on graceful shutdown:
+
+  - [Server.GracefulStop](https://pkg.go.dev/google.golang.org/grpc#Server.GracefulStop) method of the regular grpc package for Go.
+
+  - SO question to use it properly: [Behavior of server.GracefulStop() in golang](https://stackoverflow.com/q/55797865/4636715)
+
+- To have your APIs in both gRPC and RESTful style at the same time, [gRPC-Gateway](https://github.com/grpc-ecosystem/grpc-gateway) can help generate a reverse proxy in JSON format.
+
+- And, for sure, check [Awesome gRPC](https://github.com/grpc-ecosystem/awesome-grpc) projects out there.
+
+- The [routeguide](https://github.com/grpc/grpc-go/tree/master/examples/route_guide/routeguide) example and [server-side](https://grpc.io/docs/languages/go/basics/#server-side-streaming-rpc), [client-side](https://grpc.io/docs/languages/go/basics/#client-side-streaming-rpc) and [bidirectional streaming](https://grpc.io/docs/languages/go/basics/#bidirectional-streaming-rpc) tutorials on it.
+
+- [Me seeking for hexagonal architecture structure on top of standard project layout](https://github.com/golang-standards/project-layout/issues/170)
+
+- Check Google's [PubSub proto file](https://github.com/googleapis/googleapis/blob/master/google/pubsub/v1/pubsub.proto) as a helpful real-world example.
+
+- _Out of Context_: The correct order for `defer` and checking `err != nil`: https://stackoverflow.com/a/39287459/4636715
