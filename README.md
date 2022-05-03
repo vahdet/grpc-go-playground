@@ -51,11 +51,17 @@ Just basic, tiny gRPC tries w/ Go. Based on [the Udemy course by Clement Jean](h
 
     > To make the generated code right beside the `.proto` file, change the flag values as `--go_out=.` and `--go-grpc_out=.`
 
+## Share .proto files among the projects
+
+In order to make a call from a different project, the generated files has to be created also within the client project. To do that, we need to share the `.proto` files between the projects. There are several ways around, and a decent one is to keep the `.proto` files in a [separate repository](https://stackoverflow.com/q/56164897/4636715) and update them in a backward-compatible manner.
+
 ## See Also
 
 - [gRPC Basics in Go](https://grpc.io/docs/languages/go/basics/)
 
 - [Protocol Buffers Message and Field Naming Conventions](https://developers.google.com/protocol-buffers/docs/style#message_and_field_names)
+
+- [Maintaining Protocol Buffers with Backwards Compatibility](https://developers.google.com/protocol-buffers/docs/proto#updating)
 
 - Even not implemented here for simplicity, see a couple of resources on graceful shutdown:
 
